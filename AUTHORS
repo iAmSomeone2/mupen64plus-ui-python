@@ -5,3 +5,4 @@ Contributors:
 Nathan Caldwell <saintdev> - freedesktop screensaver for Linux
 Sven Eckelmann <sven@narfation.org> - patches, bug fixes and debian integration http://git.io/ynmzug
 Fayvel Victor <fayvel@web.de> - improvements, patches, bug fixes http://git.io/IfnURQ
+Brenden Davidson <brendend13@gmail.com> - PySide2 port

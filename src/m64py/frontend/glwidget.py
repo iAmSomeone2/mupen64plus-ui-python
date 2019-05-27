@@ -32,11 +32,11 @@ class GLWidget(QGLWidget):
         self.setAttribute(Qt.WA_NativeWindow, True)
         self.setContentsMargins(QMargins())
         self.setFocusPolicy(Qt.StrongFocus)
-        self.setFocus(True)
+        self.setFocus()
         self.toggle_fs.connect(self.toggle_fullscreen)
 
     def showEvent(self, event):
-        self.setFocus(True)
+        self.setFocus()
 
     def resizeEvent(self, event):
         size = event.size()

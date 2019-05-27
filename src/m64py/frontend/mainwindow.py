@@ -305,7 +305,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def on_rom_opened(self):
         if self.vidext:
             self.stack.setCurrentWidget(self.glwidget)
-            self.glwidget.setFocus(True)
+            self.glwidget.setFocus()
         if not self.cheats:
             self.cheats = Cheat(self)
         self.update_status(self.worker.core.rom_settings.goodname.decode())
