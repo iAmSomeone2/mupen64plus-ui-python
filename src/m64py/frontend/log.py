@@ -17,7 +17,7 @@
 import sys
 import logging
 
-from PySide2.QtCore import pyqtSignal
+from PySide2.QtCore import Signal
 from PySide2.QtWidgets import QDialog
 from PySide2.QtGui import QTextCursor
 
@@ -37,7 +37,7 @@ class Log:
 
 
 class LogView(QDialog, Ui_LogView):
-    msg_written = pyqtSignal(str)
+    msg_written = Signal(str)
 
     def __init__(self, parent=None):
         QDialog.__init__(self, parent)

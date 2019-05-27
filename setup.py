@@ -45,20 +45,19 @@ class BuildQt(setuptools.Command):
         path = origpath.split(os.pathsep)
         path.append(os.path.dirname(PySide2.__file__))
         os.putenv("PATH", os.pathsep.join(path))
-        if subprocess.call(["pyrcc5", qrc_file, "-o", py_file]) > 0:
+        if subprocess.call(["pyside2-rcc", qrc_file, "-o", py_file]) > 0:
             self.warn("Unable to compile resource file {}".format(qrc_file))
             if not os.path.exists(py_file):
                 sys.exit(1)
         os.putenv("PATH", origpath)
 
     def compile_ui(self, ui_file):
-        from PySide2.QtUiTools import QUiLoader
-        # TODO: Update this function so that it compiles the UI files correctly.
+        from pyside2uic import compileUi
         py_file = os.path.splitext(ui_file)[0] + "_ui.py"
         if not distutils.dep_util.newer(ui_file, py_file):
             return
         with open(py_file, "w") as a_file:
-            uic.compileUi(ui_file, a_file, from_imports=True)
+            compileUi(ui_file, a_file, from_imports=True)
 
     def run(self):
         basepath = os.path.join(os.path.dirname(__file__), "src", "m64py", "ui")
@@ -232,8 +231,8 @@ class BuildExe(setuptools.Command):
         for file_name in ["AUTHORS", "ChangeLog", "COPYING", "LICENSES", "README.rst"]:
             shutil.copy(os.path.join(BASE_DIR, file_name), dest_path)
 
-        import PyQt5
-        qt5_dir = os.path.dirname(PyQt5.__file__)
+        import PySide2
+        qt5_dir = os.path.dirname(PySide2.__file__)
         qwindows = os.path.join(qt5_dir, "Qt", "plugins", "platforms", "qwindows.dll")
         qwindows_dest = os.path.join(dest_path, "lib", "qt5_plugins", "platforms")
         if not os.path.exists(qwindows_dest):
@@ -247,7 +246,7 @@ class BuildExe(setuptools.Command):
         shutil.rmtree(plugins_path)
 
         for file_name in glob.glob(os.path.join(self.dist_dir, "m64py", "*.pyd")):
-            if "PyQt5" not in file_name:
+            if "PySide2" not in file_name:
                 shutil.move(file_name, dest_path)
 
         for file_name in glob.glob(os.path.join(self.dist_dir, "m64py", "api*.dll")):
@@ -418,7 +417,7 @@ setuptools.setup(
     package_dir={'': "src"},
     packages=["m64py", "m64py.core", "m64py.frontend", "m64py.ui"],
     scripts=["bin/m64py"],
-    requires=["PyQt5", "PySDL2"],
+    requires=["PySide2", "PySDL2"],
     platforms=["Linux", "Windows", "Darwin"],
     cmdclass={
         'build': MyBuild,

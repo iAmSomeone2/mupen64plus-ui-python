@@ -32,21 +32,30 @@ Features
 Dependencies
 ============
 
-* `PyQt5 <https://www.riverbankcomputing.com/software/pyqt/download5>`_ (QtCore, QtGui, QtWidgets, QtOpenGL)
+* `PySide2 <https://www.qt.io/qt-for-python>`_ (QtCore, QtGui, QtWidgets, QtOpenGL)
 * `PySDL2 <https://pysdl2.readthedocs.io>`_
 
-Ubuntu
+Ubuntu 18.10 & up
 ++++++
 
-``sudo apt-get install python-pyqt5 pyqt5-dev-tools python-pyqt5.qtopengl
+``sudo apt-get install python3-pyside2 pyside2-tools python3-pyside2.qtopengl
 libsdl2-dev``
+
+Fedora 28 & up
+++++++
+
+``sudo dnf install SDL2-devel``
+
+Fedora does not provide PySide2 as a system package. It can be installed with
+
+``sudo pip3 install PySide2 --user``
 
 PyPi
 ++++
 
 To install just the Python dependencies:
 
-``pip install -r requirements.txt --user``
+``pip3 install -r requirements.txt --user``
 
 .. note::
 
@@ -59,13 +68,13 @@ To install just the Python dependencies:
 Install
 =======
 
-First, run ``python setup.py build`` followed by  ``python setup.py install``
+First, run ``python3 setup.py build`` followed by  ``python3 setup.py install``
 to install
 
 .. code::
 
-  python setup.py build
-  python setup.py install --user
+  python3 setup.py build
+  python3 setup.py install --user
 
 .. note::
 

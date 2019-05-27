@@ -25,8 +25,8 @@ if os.path.isdir(os.path.join(".", "src")) and os.path.isfile(
     sys.path.insert(0, os.path.realpath("src"))
 
 try:
-    from PyQt5.QtWidgets import QApplication
-    from PyQt5.QtCore import Qt, QLocale, QTranslator
+    from PySide2.QtWidgets import QApplication
+    from PySide2.QtCore import Qt, QLocale, QTranslator
 except ImportError as err:
     sys.stderr.write("This application needs PyQt5 module%sError:%s%s" % (
         os.linesep, str(err), os.linesep))

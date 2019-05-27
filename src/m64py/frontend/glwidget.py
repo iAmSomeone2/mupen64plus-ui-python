@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide2.QtCore import Qt, pyqtSignal, QMargins
+from PySide2.QtCore import Qt, Signal, QMargins
 from PySide2.QtOpenGL import QGLWidget
 
 from m64py.core.defs import *
@@ -23,7 +23,7 @@ from m64py.frontend.keymap import QT2SDL2
 
 class GLWidget(QGLWidget):
 
-    toggle_fs = pyqtSignal()
+    toggle_fs = Signal()
 
     def __init__(self, parent):
         QGLWidget.__init__(self, parent)

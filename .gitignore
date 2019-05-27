@@ -5,6 +5,10 @@ src/m64py.egg-info/
 # Files
 dist/*.egg
 
+# Generated Python UI and resource files
+*_ui.py
+*_rc.py
+
 # Pycache files
 __pycache__/
 

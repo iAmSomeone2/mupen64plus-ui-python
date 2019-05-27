@@ -20,7 +20,7 @@ import sys
 from PySide2.QtGui import QKeySequence, QPixmap
 from PySide2.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsScene, QGraphicsPixmapItem
 from PySide2.QtWidgets import QAction, QLabel, QFileDialog, QStackedWidget, QActionGroup, QSizePolicy, QDialog
-from PySide2.QtCore import Qt, QTimer, QFileInfo, QEvent, QMargins, pyqtSignal, pyqtSlot
+from PySide2.QtCore import Qt, QTimer, QFileInfo, QEvent, QMargins, Signal, Slot
 
 from m64py.core.defs import *
 from m64py.frontend.dialogs import *
@@ -39,15 +39,15 @@ from m64py.frontend.recentfiles import RecentFiles
 class MainWindow(QMainWindow, Ui_MainWindow):
     """Frontend main window"""
 
-    rom_opened = pyqtSignal()
-    rom_closed = pyqtSignal()
-    file_open = pyqtSignal(str, str)
-    file_opening = pyqtSignal(str)
-    set_caption = pyqtSignal(str)
-    state_changed = pyqtSignal(tuple)
-    save_image = pyqtSignal(bool)
-    info_dialog = pyqtSignal(str)
-    archive_dialog = pyqtSignal(list)
+    rom_opened = Signal()
+    rom_closed = Signal()
+    file_open = Signal(str, str)
+    file_opening = Signal(str)
+    set_caption = Signal(str)
+    state_changed = Signal(tuple)
+    save_image = Signal(bool)
+    info_dialog = Signal(str)
+    archive_dialog = Signal(list)
 
     def __init__(self, optparse):
         """Constructor"""

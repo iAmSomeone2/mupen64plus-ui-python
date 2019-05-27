@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PySide2.QtCore import QObject, pyqtSignal, QTime, QTimer
+from PySide2.QtCore import QObject, Signal, QTime, QTimer
 
 from sdl2 import SDL_WasInit, SDL_InitSubSystem, SDL_INIT_JOYSTICK
 from sdl2 import SDL_JoystickOpen, SDL_JoystickClose, SDL_NumJoysticks, SDL_JoystickNameForIndex
@@ -38,10 +38,10 @@ SDL_JOYSTICK_DEFAULT_AUTOREPEAT_DELAY = 250
 
 class Joystick(QObject):
 
-    axis_value_changed = pyqtSignal(int, int)
-    button_value_changed = pyqtSignal(int, bool)
-    hat_value_changed = pyqtSignal(int, int)
-    trackball_value_changed = pyqtSignal(int, int, int)
+    axis_value_changed = Signal(int, int)
+    button_value_changed = Signal(int, bool)
+    hat_value_changed = Signal(int, int)
+    trackball_value_changed = Signal(int, int, int)
 
     def __init__(self, do_auto_repeat=True,
                  repeat_delay=SDL_JOYSTICK_DEFAULT_AUTOREPEAT_DELAY,
