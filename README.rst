@@ -48,7 +48,9 @@ Fedora 28 & up
 
 Fedora does not provide PySide2 as a system package. It can be installed with
 
-``sudo pip3 install PySide2 --user``
+``pip3 install PySide2 --user``
+or
+``sudo pip3 install PySide2`` for a system-wide install.
 
 PyPi
 ++++
