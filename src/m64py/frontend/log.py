@@ -17,9 +17,9 @@
 import sys
 import logging
 
-from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtWidgets import QDialog
-from PyQt5.QtGui import QTextCursor
+from PySide2.QtCore import pyqtSignal
+from PySide2.QtWidgets import QDialog
+from PySide2.QtGui import QTextCursor
 
 from m64py.ui.logview_ui import Ui_LogView
 

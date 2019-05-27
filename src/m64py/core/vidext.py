@@ -23,7 +23,7 @@ try:
 except:
     glimport = False
 
-from PyQt5.QtOpenGL import QGLFormat
+from PySide2.QtOpenGL import QGLFormat
 
 from sdl2 import SDL_WasInit, SDL_InitSubSystem, SDL_QuitSubSystem, SDL_INIT_VIDEO
 from sdl2 import SDL_GetNumDisplayModes, SDL_DisplayMode, SDL_GetDisplayMode

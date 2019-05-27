@@ -14,8 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import Qt, pyqtSignal, QMargins
-from PyQt5.QtOpenGL import QGLWidget
+from PySide2.QtCore import Qt, pyqtSignal, QMargins
+from PySide2.QtOpenGL import QGLWidget
 
 from m64py.core.defs import *
 from m64py.frontend.keymap import QT2SDL2

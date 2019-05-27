@@ -16,9 +16,9 @@
 
 import os
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QListWidgetItem, QGraphicsPixmapItem
+from PySide2.QtCore import Qt
+from PySide2.QtGui import QPixmap
+from PySide2.QtWidgets import QMainWindow, QDesktopWidget, QListWidgetItem, QGraphicsPixmapItem
 
 from m64py.frontend.romreader import ROMReader
 from m64py.ui.romlist_ui import Ui_ROMList

@@ -17,10 +17,10 @@
 import os
 import sys
 
-from PyQt5.QtGui import QKeySequence, QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsScene, QGraphicsPixmapItem
-from PyQt5.QtWidgets import QAction, QLabel, QFileDialog, QStackedWidget, QActionGroup, QSizePolicy
-from PyQt5.QtCore import Qt, QTimer, QFileInfo, QEvent, QMargins, pyqtSignal, pyqtSlot
+from PySide2.QtGui import QKeySequence, QPixmap
+from PySide2.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsScene, QGraphicsPixmapItem
+from PySide2.QtWidgets import QAction, QLabel, QFileDialog, QStackedWidget, QActionGroup, QSizePolicy, QDialog
+from PySide2.QtCore import Qt, QTimer, QFileInfo, QEvent, QMargins, pyqtSignal, pyqtSlot
 
 from m64py.core.defs import *
 from m64py.frontend.dialogs import *
@@ -323,7 +323,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         del self.cheats
         self.cheats = None
 
-    @pyqtSlot()
+    @Slot()
     def on_actionManually_triggered(self):
         """Shows ROM file dialog."""
         dialog = QFileDialog()
@@ -337,27 +337,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             last_dir = QFileInfo(file_path).path()
             self.settings.qset.setValue("last_dir", last_dir)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionFromList_triggered(self):
         """Shows ROM list."""
         ROMList(self)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionShowROMInfo_triggered(self):
         """Shows ROM information."""
         RomInfo(self)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionLoadState_triggered(self):
         """Loads state."""
         self.worker.state_load()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSaveState_triggered(self):
         """Saves state."""
         self.worker.state_save()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionLoadFrom_triggered(self):
         """Loads state from file."""
         dialog = QFileDialog()
@@ -369,7 +369,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if file_path:
             self.worker.state_load(file_path)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSaveAs_triggered(self):
         """Saves state to file."""
         dialog = QFileDialog()
@@ -387,93 +387,93 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     self.worker.state_save(file_path, save_type)
 
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSaveScreenshot_triggered(self):
         """Saves screenshot."""
         self.worker.save_screenshot()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionPause_triggered(self):
         """Toggles pause."""
         self.worker.toggle_pause()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionMute_triggered(self):
         """Toggles mute."""
         self.worker.toggle_mute()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionStop_triggered(self):
         """Stops emulator."""
         self.worker.stop()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionReset_triggered(self):
         """Resets emulator."""
         self.worker.reset()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSoftReset_triggered(self):
         """Resets emulator."""
         self.worker.reset(True)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionLimitFPS_triggered(self):
         """Toggles speed limit."""
         self.worker.toggle_speed_limit()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSlowDown_triggered(self):
         """Speeds down emulator."""
         self.worker.speed_down()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionSpeedUp_triggered(self):
         """Speeds up emulator."""
         self.worker.speed_up()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionCheats_triggered(self):
         """Shows cheat dialog."""
         if self.cheats:
             self.cheats.show()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionFullscreen_triggered(self):
         """Toggles fullscreen."""
         self.worker.toggle_fs()
 
-    @pyqtSlot()
+    @Slot()
     def on_actionPaths_triggered(self):
         """Shows paths settings."""
         self.settings.show_page(0)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionEmulator_triggered(self):
         """Shows emulator settings."""
         self.settings.show_page(1)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionGraphics_triggered(self):
         """Shows emulator settings."""
         self.settings.show_page(2)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionPlugins_triggered(self):
         """Shows plugins settings."""
         self.settings.show_page(3)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionAbout_triggered(self):
         """Shows about dialog."""
         AboutDialog(self)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionLicense_triggered(self):
         """Shows license dialog."""
         LicenseDialog(self)
 
-    @pyqtSlot()
+    @Slot()
     def on_actionLog_triggered(self):
         """Shows log dialog."""
         logview.show()

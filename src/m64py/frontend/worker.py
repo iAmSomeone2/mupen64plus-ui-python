@@ -17,7 +17,7 @@
 import os
 import shutil
 
-from PyQt5.QtCore import QThread, QTimer
+from PySide2.QtCore import QThread, QTimer
 from sdl2 import SDL_EnableScreenSaver, SDL_DisableScreenSaver
 
 from m64py.utils import sl

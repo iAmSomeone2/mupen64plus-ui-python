@@ -37,13 +37,13 @@ class BuildQt(setuptools.Command):
         pass
 
     def compile_rc(self, qrc_file):
-        import PyQt5
+        import PySide2
         py_file = os.path.splitext(qrc_file)[0] + "_rc.py"
         if not distutils.dep_util.newer(qrc_file, py_file):
             return
         origpath = os.getenv("PATH")
         path = origpath.split(os.pathsep)
-        path.append(os.path.dirname(PyQt5.__file__))
+        path.append(os.path.dirname(PySide2.__file__))
         os.putenv("PATH", os.pathsep.join(path))
         if subprocess.call(["pyrcc5", qrc_file, "-o", py_file]) > 0:
             self.warn("Unable to compile resource file {}".format(qrc_file))
@@ -52,7 +52,8 @@ class BuildQt(setuptools.Command):
         os.putenv("PATH", origpath)
 
     def compile_ui(self, ui_file):
-        from PyQt5 import uic
+        from PySide2.QtUiTools import QUiLoader
+        # TODO: Update this function so that it compiles the UI files correctly.
         py_file = os.path.splitext(ui_file)[0] + "_ui.py"
         if not distutils.dep_util.newer(ui_file, py_file):
             return
@@ -173,7 +174,7 @@ class BuildDmg(setuptools.Command):
 
 class BuildExe(setuptools.Command):
     """
-    Requires PyQt5, rarfile, PyLZMA, PyWin32, PyInstaller and Inno
+    Requires PySide2, rarfile, PyLZMA, PyWin32, PyInstaller and Inno
     Setup 5.
     """
 

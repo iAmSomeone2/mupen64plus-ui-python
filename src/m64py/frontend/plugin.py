@@ -14,8 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QDialog, QLabel, QSpinBox, QComboBox, QLineEdit, QCheckBox
+from PySide2.QtCore import Qt
+from PySide2.QtWidgets import QDialog, QLabel, QSpinBox, QComboBox, QLineEdit, QCheckBox
 import re
 
 from m64py.core.defs import *

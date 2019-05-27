@@ -1,3 +1,6 @@
+v0.2.5  May 27, 2019:
+    * Replaced PyQt5 with PySide2, better cross-compatibility, complies with LGPL
+
 v0.2.4  Jan 19, 2017:
 
     * Dropped support for SDL1

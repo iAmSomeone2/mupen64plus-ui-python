@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import QObject, pyqtSignal, QTime, QTimer
+from PySide2.QtCore import QObject, pyqtSignal, QTime, QTimer
 
 from sdl2 import SDL_WasInit, SDL_InitSubSystem, SDL_INIT_JOYSTICK
 from sdl2 import SDL_JoystickOpen, SDL_JoystickClose, SDL_NumJoysticks, SDL_JoystickNameForIndex

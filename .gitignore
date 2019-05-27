@@ -4,3 +4,13 @@ src/m64py.egg-info/
 
 # Files
 dist/*.egg
+
+# Pycache files
+__pycache__/
+
+# Python virtual environment
+env/
+venv/
+
+# IDE settings
+.vscode/

@@ -18,7 +18,7 @@ import os
 import ctypes
 import fnmatch
 
-from PyQt5.QtCore import QThread
+from PySide2.QtCore import QThread
 
 from m64py.utils import sl
 from m64py.core.defs import m64p_rom_header
